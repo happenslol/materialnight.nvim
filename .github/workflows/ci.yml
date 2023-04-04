@@ -7,7 +7,6 @@ jobs:
   tests:
     strategy:
       matrix:
-        # os: [ubuntu-latest, windows-latest]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -35,7 +34,7 @@ jobs:
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: tokyonight.nvim
+          vimdoc: materialnight.nvim
           version: "Neovim >= 0.8.0"
           demojify: true
           treesitter: true
@@ -46,27 +45,3 @@ jobs:
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
-  release:
-    name: release
-    if: ${{ github.ref == 'refs/heads/main' }}
-    needs:
-      - docs
-      - tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: google-github-actions/release-please-action@v3
-        id: release
-        with:
-          release-type: simple
-          package-name: tokyonight.nvim
-      - uses: actions/checkout@v3
-      - name: tag stable versions
-        if: ${{ steps.release.outputs.release_created }}
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
-          git remote add gh-token "https://${{ secrets.GITHUB_TOKEN }}@github.com/google-github-actions/release-please-action.git"
-          git tag -d stable || true
-          git push origin :stable || true
-          git tag -a stable -m "Last Stable Release"
-          git push origin stable

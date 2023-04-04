@@ -1,4 +1,4 @@
-local ts = require("tokyonight.treesitter")
+local ts = require("materialnight.treesitter")
 
 local M = {}
 
@@ -37,7 +37,7 @@ function M.lighten(hex, amount, fg)
 end
 
 function M.invert_color(color)
-  local hsluv = require("tokyonight.hsluv")
+  local hsluv = require("materialnight.hsluv")
   if color ~= "NONE" then
     local hsl = hsluv.hex_to_hsluv(color)
     hsl[3] = 100 - hsl[3]
@@ -71,15 +71,15 @@ end
 
 --- Delete the autocmds when the theme changes to something else
 function M.onColorScheme()
-  vim.cmd([[autocmd! TokyoNight]])
-  vim.cmd([[augroup! TokyoNight]])
+  vim.cmd([[autocmd! MaterialNight]])
+  vim.cmd([[augroup! MaterialNight]])
 end
 
 ---@param config Config
 function M.autocmds(config)
-  vim.cmd([[augroup TokyoNight]])
+  vim.cmd([[augroup MaterialNight]])
   vim.cmd([[  autocmd!]])
-  vim.cmd([[  autocmd ColorSchemePre * lua require("tokyonight.util").onColorScheme()]])
+  vim.cmd([[  autocmd ColorSchemePre * lua require("materialnight.util").onColorScheme()]])
 
   vim.cmd(
     [[  autocmd FileType ]]
@@ -177,7 +177,7 @@ function M.load(theme)
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "tokyonight"
+  vim.g.colors_name = "materialnight"
 
   if ts.new_style() then
     for group, colors in pairs(ts.defaults) do
