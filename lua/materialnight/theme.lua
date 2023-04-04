@@ -53,7 +53,7 @@ function M.setup()
     Substitute = { bg = c.red, fg = c.black }, -- |:substitute| replacement text highlighting
     LineNr = { fg = c.fg_gutter }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = { fg = c.dark5 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = { fg = c.orange, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen = { bg = c.comment, fg = c.cyan, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = { fg = c.fg_dark, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea = { fg = c.fg_dark }, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -74,10 +74,10 @@ function M.setup()
     IncSearch = { bg = c.orange, fg = c.black }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch = { link = "IncSearch" },
     SpecialKey = { fg = c.dark3 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    SpellBad = { sp = c.error, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    SpellCap = { sp = c.warning, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    SpellLocal = { sp = c.info, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    SpellRare = { sp = c.hint, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellBad = { sp = c.error, underline = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    SpellCap = { sp = c.warning, underline = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal = { sp = c.info, underline = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare = { sp = c.hint, underline = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine = { fg = c.fg_sidebar, bg = c.bg_statusline }, -- status line of current window
     StatusLineNC = { fg = c.fg_gutter, bg = c.bg_statusline }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine = { bg = c.bg_statusline, fg = c.fg_gutter }, -- tab pages line, not active tab page label
@@ -115,20 +115,20 @@ function M.setup()
     -- Exception     = { }, --  try, catch, throw
 
     PreProc = { fg = c.cyan }, -- (preferred) generic Preprocessor
-    -- Include       = { }, --  preprocessor #include
+    Include = { fg = c.blue2 }, --  preprocessor #include
     -- Define        = { }, --   preprocessor #define
     -- Macro         = { }, --    same as Define
     -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
 
-    Type = { fg = c.blue1 }, -- (preferred) int, long, char, etc.
-    -- StorageClass  = { }, -- static, register, volatile, etc.
-    -- Structure     = { }, --  struct, union, enum, etc.
+    Type = { fg = c.yellow }, -- (preferred) int, long, char, etc.
+    StorageClass = { fg = c.fg }, -- static, register, volatile, etc.
+    Structure = { fg = c.fg }, --  struct, union, enum, etc.
     -- Typedef       = { }, --  A typedef
 
-    Special = { fg = c.blue1 }, -- (preferred) any special symbol
+    Special = { fg = c.orange }, -- (preferred) any special symbol
     -- SpecialChar   = { }, --  special character in a constant
     -- Tag           = { }, --    you can use CTRL-] on this
-    -- Delimiter     = { }, --  character that needs attention
+    Delimiter = { fg = c.blue }, --  character that needs attention
     -- SpecialComment= { }, -- special things inside a comment
     -- Debug         = { }, --    debugging statements
 
@@ -184,10 +184,10 @@ function M.setup()
     DiagnosticVirtualTextInfo = { bg = util.darken(c.info, 0.1), fg = c.info }, -- Used for "Information" diagnostic virtual text
     DiagnosticVirtualTextHint = { bg = util.darken(c.hint, 0.1), fg = c.hint }, -- Used for "Hint" diagnostic virtual text
 
-    DiagnosticUnderlineError = { undercurl = true, sp = c.error }, -- Used to underline "Error" diagnostics
-    DiagnosticUnderlineWarn = { undercurl = true, sp = c.warning }, -- Used to underline "Warning" diagnostics
-    DiagnosticUnderlineInfo = { undercurl = true, sp = c.info }, -- Used to underline "Information" diagnostics
-    DiagnosticUnderlineHint = { undercurl = true, sp = c.hint }, -- Used to underline "Hint" diagnostics
+    DiagnosticUnderlineError = { underline = true, sp = c.error }, -- Used to underline "Error" diagnostics
+    DiagnosticUnderlineWarn = { underline = true, sp = c.warning }, -- Used to underline "Warning" diagnostics
+    DiagnosticUnderlineInfo = { underline = true, sp = c.info }, -- Used to underline "Information" diagnostics
+    DiagnosticUnderlineHint = { underline = true, sp = c.hint }, -- Used to underline "Hint" diagnostics
 
     LspSignatureActiveParameter = { bg = util.darken(c.bg_visual, 0.4), bold = true },
     LspCodeLens = { fg = c.comment },
@@ -207,7 +207,7 @@ function M.setup()
 
     --- Punctuation
     ["@punctuation.delimiter"] = { fg = c.blue5 }, -- For delimiters ie: `.`
-    ["@punctuation.bracket"] = { fg = c.fg_dark }, -- For brackets and parens.
+    ["@punctuation.bracket"] = { fg = c.dark5 }, -- For brackets and parens.
     ["@punctuation.special"] = { fg = c.blue5 }, -- For special punctutation that does not fall in the catagories before.
     ["@punctuation.special.markdown"] = { fg = c.orange, bold = true },
 
@@ -217,8 +217,8 @@ function M.setup()
     ["@string.escape"] = { fg = c.magenta }, -- For escape characters within a string.
 
     --- Functions
-    ["@constructor"] = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-    ["@parameter"] = { fg = c.yellow }, -- For parameters of a function.
+    ["@constructor"] = { fg = c.orange }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    ["@parameter"] = { fg = c.red }, -- For parameters of a function.
     -- TODO:
     -- ["@parameter.builtin"] = {}, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
@@ -231,8 +231,8 @@ function M.setup()
     ["@label"] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
 
     --- Types
-    ["@field"] = { fg = c.green1 }, -- For fields.
-    ["@property"] = { fg = c.green1 },
+    ["@field"] = { fg = c.yellow }, -- For fields.
+    ["@property"] = { fg = c.yellow },
 
     --- Identifiers
     ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
@@ -251,7 +251,7 @@ function M.setup()
     ["@text.diff.add"] = { link = "DiffAdd" },
     ["@text.diff.delete"] = { link = "DiffDelete" },
 
-    ["@namespace"] = { link = "Include" },
+    ["@namespace"] = { fg = c.orange, style = { italic = true } },
 
     -- LSP Semantic Token Groups
     ["@lsp.type.comment"] = { link = "@comment" },
