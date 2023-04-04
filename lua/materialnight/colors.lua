@@ -5,95 +5,48 @@ local M = {}
 ---@class Palette
 M.default = {
   none = "NONE",
-  bg_dark = "#1f2335",
-  bg = "#24283b",
-  bg_highlight = "#292e42",
-  terminal_black = "#414868",
-  fg = "#c0caf5",
-  fg_dark = "#a9b1d6",
-  fg_gutter = "#3b4261",
-  dark3 = "#545c7e",
-  comment = "#565f89",
-  dark5 = "#737aa2",
-  blue0 = "#3d59a1",
-  blue = "#7aa2f7",
-  cyan = "#7dcfff",
-  blue1 = "#2ac3de",
-  blue2 = "#0db9d7",
-  blue5 = "#89ddff",
-  blue6 = "#b4f9f8",
-  blue7 = "#394b70",
-  magenta = "#bb9af7",
-  magenta2 = "#ff007c",
-  purple = "#9d7cd8",
-  orange = "#ff9e64",
-  yellow = "#e0af68",
-  green = "#9ece6a",
+
+  bg_dark = "#282828",
+  bg = "#212121",
+  bg_highlight = "#2d2d2d",
+  terminal_black = "#282828",
+
+  fg = "#eeffff",
+  fg_dark = "#becccc",
+  fg_gutter = "#424242",
+  comment = "#545454",
+
+  dark3 = "#404040",
+  dark5 = "#65737e",
+
+  blue = "#82aaff",
+  blue0 = "#6888cc",
+  blue1 = "#8fb3ff",
+  blue2 = "#9bbbff",
+  blue5 = "#a8c4ff",
+  blue6 = "#b2ccd6",
+  blue7 = "#415580",
+
+  cyan = "#89ddff",
+
+  magenta = "#c792ea",
+  magenta2 = "#ddbef2",
+
+  green = "#c3e88d",
   green1 = "#73daca",
   green2 = "#41a6b5",
-  teal = "#1abc9c",
-  red = "#f7768e",
-  red1 = "#db4b4b",
-  git = { change = "#6183bb", add = "#449dab", delete = "#914c54" },
-  gitSigns = {
-    add = "#266d6a",
-    change = "#536c9e",
-    delete = "#b2555b",
-  },
-}
 
-M.night = {
-  bg = "#1a1b26",
-  bg_dark = "#16161e",
-}
-M.day = M.night
+  red = "#f07178",
+  red1 = "#ff8b92",
 
-M.moon = function()
-  local ret = {
-    none = "NONE",
-    bg_dark = "#1e2030", --
-    bg = "#222436", --
-    bg_highlight = "#2f334d", --
-    terminal_black = "#444a73", --
-    fg = "#c8d3f5", --
-    fg_dark = "#828bb8", --
-    fg_gutter = "#3b4261",
-    dark3 = "#545c7e",
-    comment = "#7a88cf", --
-    dark5 = "#737aa2",
-    blue0 = "#3e68d7", --
-    blue = "#82aaff", --
-    cyan = "#86e1fc", --
-    blue1 = "#65bcff", --
-    blue2 = "#0db9d7",
-    blue5 = "#89ddff",
-    blue6 = "#b4f9f8", --
-    blue7 = "#394b70",
-    purple = "#fca7ea", --
-    magenta2 = "#ff007c",
-    magenta = "#c099ff", --
-    orange = "#ff966c", --
-    yellow = "#ffc777", --
-    green = "#c3e88d", --
-    green1 = "#4fd6be", --
-    green2 = "#41a6b5",
-    teal = "#4fd6be", --
-    red = "#ff757f", --
-    red1 = "#c53b53", --
-  }
-  ret.comment = util.blend(ret.comment, ret.bg, "bb")
-  ret.git = {
-    change = util.blend(ret.blue, ret.bg, "ee"),
-    add = util.blend(ret.green, ret.bg, "ee"),
-    delete = util.blend(ret.red, ret.bg, "dd"),
-  }
-  ret.gitSigns = {
-    change = util.blend(ret.blue, ret.bg, "66"),
-    add = util.blend(ret.green, ret.bg, "66"),
-    delete = util.blend(ret.red, ret.bg, "aa"),
-  }
-  return ret
-end
+  purple = "#c792ea",
+  orange = "#f78c6c",
+  yellow = "#ffcb6b",
+  teal = "#98d3cb",
+
+  git = { add = "#c3e88d", change = "#ffcb6b", delete = "#f07178" },
+  gitSigns = { add = "#c3e88d", change = "#ffcb6b", delete = "#f07178" },
+}
 
 ---@return ColorScheme
 function M.setup(opts)
@@ -123,7 +76,7 @@ function M.setup(opts)
   colors.git.ignore = colors.dark3
   colors.black = util.darken(colors.bg, 0.8, "#000000")
   colors.border_highlight = util.darken(colors.blue1, 0.8)
-  colors.border = colors.black
+  colors.border = colors.bg_highlight
 
   -- Popups and statusline always get a dark background
   colors.bg_popup = colors.bg_dark
