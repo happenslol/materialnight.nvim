@@ -121,8 +121,8 @@ function M.setup()
     -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
 
     Type = { fg = c.yellow }, -- (preferred) int, long, char, etc.
-    StorageClass = { fg = c.fg }, -- static, register, volatile, etc.
-    Structure = { fg = c.fg }, --  struct, union, enum, etc.
+    -- StorageClass = { fg = c.fg }, -- static, register, volatile, etc.
+    -- Structure = { fg = c.fg }, --  struct, union, enum, etc.
     -- Typedef       = { }, --  A typedef
 
     Special = { fg = c.orange }, -- (preferred) any special symbol
