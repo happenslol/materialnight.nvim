@@ -212,7 +212,7 @@ function M.setup()
     ["@punctuation.special.markdown"] = { fg = c.orange, bold = true },
 
     --- Literals
-    ["@string.documentation"] = { fg = c.yellow },
+    ["@string.documentation"] = { fg = c.green },
     ["@string.regex"] = { fg = c.blue6 }, -- For regexes.
     ["@string.escape"] = { fg = c.magenta }, -- For escape characters within a string.
 
@@ -350,8 +350,21 @@ function M.setup()
     GitSignsDelete = { fg = c.gitSigns.delete }, -- diff mode: Deleted line |diff.txt|
 
     -- Telescope
-    TelescopeBorder = { fg = c.border_highlight, bg = c.bg_float },
-    TelescopeNormal = { fg = c.fg, bg = c.bg_float },
+    -- TelescopeBorder = { fg = c.border_highlight, bg = c.bg_float },
+    -- TelescopeNormal = { fg = c.fg, bg = c.bg_float },
+
+    TelescopeBorder = { fg = c.fg_gutter, bg = c.bg_float },
+    TelescopeNormal = { bg = c.bg_float },
+    TelescopePreviewBorder = { fg = c.bg_float, bg = c.bg_float },
+    TelescopePreviewNormal = { bg = c.bg_float },
+    TelescopePreviewTitle = { fg = c.bg_float, bg = c.green },
+    TelescopePromptBorder = { fg = c.fg_gutter, bg = c.fg_gutter },
+    TelescopePromptNormal = { fg = c.fg, bg = c.fg_gutter },
+    TelescopePromptPrefix = { fg = c.yellow, bg = c.fg_gutter },
+    TelescopePromptTitle = { fg = c.bg, bg = c.yellow },
+    TelescopeResultsBorder = { fg = c.bg_float, bg = c.bg_float },
+    TelescopeResultsNormal = { bg = c.bg_float },
+    TelescopeResultsTitle = { fg = c.bg_float, bg = c.bg_float },
 
     -- NvimTree
     NvimTreeNormal = { fg = c.fg_sidebar, bg = c.bg_sidebar },
@@ -731,6 +744,10 @@ function M.setup()
     TreesitterContext = { bg = util.darken(c.fg_gutter, 0.8) },
     Hlargs = { fg = c.yellow },
     -- TreesitterContext = { bg = util.darken(c.bg_visual, 0.4) },
+
+    -- Copilot
+    CopilotAnnotation = { fg = "#9d9d9d", style = options.styles.comments },
+    CopilotSuggestion = { fg = "#9d9d9d", style = options.styles.comments },
   }
 
   if not vim.diagnostic then
