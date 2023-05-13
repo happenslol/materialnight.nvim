@@ -43,9 +43,6 @@ M.default = {
   orange = "#f78c6c",
   yellow = "#ffcb6b",
   teal = "#98d3cb",
-
-  git = { add = "#c3e88d", change = "#ffcb6b", delete = "#f07178" },
-  gitSigns = { add = "#c3e88d", change = "#ffcb6b", delete = "#f07178" },
 }
 
 ---@return ColorScheme
@@ -61,53 +58,66 @@ function M.setup(opts)
 
   -- Color Palette
   ---@class ColorScheme: Palette
-  local colors = vim.tbl_deep_extend("force", M.default, palette)
+  local c = vim.tbl_deep_extend("force", M.default, palette)
 
-  util.bg = colors.bg
+  c.git = { add = c.green, change = c.yellow, delete = c.red }
+  c.gitSigns = c.git
+
+  util.bg = c.bg
   util.day_brightness = config.options.day_brightness
 
-  colors.diff = {
-    add = util.darken(colors.green2, 0.15),
-    delete = util.darken(colors.red1, 0.15),
-    change = util.darken(colors.blue7, 0.15),
-    text = colors.blue7,
+  c.diff = {
+    add = util.darken(c.green2, 0.15),
+    delete = util.darken(c.red1, 0.15),
+    change = util.darken(c.blue7, 0.15),
+    text = c.blue7,
   }
 
-  colors.git.ignore = colors.dark3
-  colors.black = util.darken(colors.bg, 0.8, "#000000")
-  colors.border_highlight = util.darken(colors.blue1, 0.8)
-  colors.border = colors.bg_highlight
+  c.git.ignore = c.dark3
+  c.black = util.darken(c.bg, 0.8, "#000000")
+  c.border_highlight = util.darken(c.blue1, 0.8)
+  c.border = c.bg_highlight
 
   -- Popups and statusline always get a dark background
-  colors.bg_popup = colors.bg_dark
-  colors.bg_statusline = colors.bg
+  c.bg_popup = c.bg_dark
+  c.bg_statusline = c.terminal_black
 
   -- Sidebar and Floats are configurable
-  colors.bg_sidebar = config.options.styles.sidebars == "transparent" and colors.none
-    or config.options.styles.sidebars == "dark" and colors.bg_dark
-    or colors.bg
+  c.bg_sidebar = config.options.styles.sidebars == "transparent" and c.none
+    or config.options.styles.sidebars == "dark" and c.bg_dark
+    or c.bg
 
-  colors.bg_float = config.options.styles.floats == "transparent" and colors.none
-    or config.options.styles.floats == "dark" and colors.bg_dark
-    or colors.bg
+  c.bg_float = config.options.styles.floats == "transparent" and c.none
+    or config.options.styles.floats == "dark" and c.bg_dark
+    or c.bg
 
-  colors.bg_visual = util.darken(colors.blue0, 0.4)
-  colors.bg_search = colors.blue0
-  colors.fg_sidebar = colors.fg
-  -- colors.fg_float = config.options.styles.floats == "dark" and colors.fg_dark or colors.fg
-  colors.fg_float = colors.fg
+  c.bg_visual = util.darken(c.blue0, 0.4)
+  c.bg_search = c.blue0
+  c.fg_sidebar = c.fg
+  c.fg_float = c.fg
 
-  colors.error = colors.red
-  colors.warning = colors.yellow
-  colors.info = colors.blue2
-  colors.hint = colors.teal
+  c.error = c.red
+  c.warning = c.yellow
+  c.info = c.blue2
+  c.hint = c.teal
 
-  config.options.on_colors(colors)
+  c.telescope = {
+    prompt_bg = c.bg_highlight,
+    prompt_fg = c.fg,
+    prompt_title_fg = c.bg,
+    results_bg = c.bg_float,
+    prompt_accent = c.blue,
+    preview_accent = c.green,
+  }
+
+  c.copilot_fg = util.darken(c.comment, 0.7)
+
+  config.options.on_colors(c)
   if opts.transform and config.is_day() then
-    util.invert_colors(colors)
+    util.invert_colors(c)
   end
 
-  return colors
+  return c
 end
 
 return M

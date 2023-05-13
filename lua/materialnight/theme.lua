@@ -129,7 +129,7 @@ function M.setup()
     -- SpecialChar   = { }, --  special character in a constant
     -- Tag           = { }, --    you can use CTRL-] on this
     Delimiter = { fg = c.blue }, --  character that needs attention
-    -- SpecialComment= { }, -- special things inside a comment
+    -- SpecialComment= { bg = c.yellow, fg = c.bg }, -- special things inside a comment
     -- Debug         = { }, --    debugging statements
 
     Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
@@ -349,22 +349,18 @@ function M.setup()
     GitSignsChange = { fg = c.gitSigns.change }, -- diff mode: Changed line |diff.txt|
     GitSignsDelete = { fg = c.gitSigns.delete }, -- diff mode: Deleted line |diff.txt|
 
-    -- Telescope
-    -- TelescopeBorder = { fg = c.border_highlight, bg = c.bg_float },
-    -- TelescopeNormal = { fg = c.fg, bg = c.bg_float },
-
-    TelescopeBorder = { fg = c.fg_gutter, bg = c.bg_float },
-    TelescopeNormal = { bg = c.bg_float },
-    TelescopePreviewBorder = { fg = c.bg_float, bg = c.bg_float },
-    TelescopePreviewNormal = { bg = c.bg_float },
-    TelescopePreviewTitle = { fg = c.bg_float, bg = c.green },
-    TelescopePromptBorder = { fg = c.fg_gutter, bg = c.fg_gutter },
-    TelescopePromptNormal = { fg = c.fg, bg = c.fg_gutter },
-    TelescopePromptPrefix = { fg = c.yellow, bg = c.fg_gutter },
-    TelescopePromptTitle = { fg = c.bg, bg = c.yellow },
-    TelescopeResultsBorder = { fg = c.bg_float, bg = c.bg_float },
-    TelescopeResultsNormal = { bg = c.bg_float },
-    TelescopeResultsTitle = { fg = c.bg_float, bg = c.bg_float },
+    TelescopeBorder = { fg = c.telescope.prompt_bg, bg = c.telescope.results_bg },
+    TelescopeNormal = { bg = c.telescope.results_bg },
+    TelescopePreviewBorder = { fg = c.telescope.results_bg, bg = c.telescope.results_bg },
+    TelescopePreviewNormal = { bg = c.telescope.results_bg },
+    TelescopePreviewTitle = { fg = c.telescope.results_bg, bg = c.telescope.preview_accent },
+    TelescopePromptBorder = { fg = c.telescope.prompt_bg, bg = c.telescope.prompt_bg },
+    TelescopePromptNormal = { fg = c.telescope.prompt_fg, bg = c.telescope.prompt_bg },
+    TelescopePromptPrefix = { fg = c.telescope.prompt_accent, bg = c.telescope.prompt_bg },
+    TelescopePromptTitle = { fg = c.telescope.prompt_title_fg, bg = c.telescope.prompt_accent },
+    TelescopeResultsBorder = { fg = c.telescope.results_bg, bg = c.telescope.results_bg },
+    TelescopeResultsNormal = { bg = c.telescope.results_bg },
+    TelescopeResultsTitle = { fg = c.telescope.results_bg, bg = c.telescope.results_bg },
 
     -- NvimTree
     NvimTreeNormal = { fg = c.fg_sidebar, bg = c.bg_sidebar },
@@ -746,8 +742,8 @@ function M.setup()
     -- TreesitterContext = { bg = util.darken(c.bg_visual, 0.4) },
 
     -- Copilot
-    CopilotAnnotation = { fg = "#9d9d9d", style = options.styles.comments },
-    CopilotSuggestion = { fg = "#9d9d9d", style = options.styles.comments },
+    CopilotAnnotation = { fg = c.copilot_fg, style = options.styles.comments },
+    CopilotSuggestion = { fg = c.copilot_fg, style = options.styles.comments },
   }
 
   if not vim.diagnostic then
