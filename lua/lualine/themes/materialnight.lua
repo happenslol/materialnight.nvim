@@ -36,8 +36,8 @@ materialnight.terminal = {
 
 materialnight.inactive = {
   a = { bg = colors.bg_statusline, fg = colors.blue },
-  b = { bg = colors.bg_statusline, fg = colors.fg_gutter, gui = "bold" },
-  c = { bg = colors.bg_statusline, fg = colors.fg_gutter },
+  b = { bg = colors.bg_statusline, fg = colors.comment, gui = "bold" },
+  c = { bg = colors.bg_statusline, fg = colors.comment },
 }
 
 if config.lualine_bold then
