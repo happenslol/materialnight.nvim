@@ -357,6 +357,7 @@ function M.setup()
     TelescopePromptBorder = { fg = c.telescope.prompt_bg, bg = c.telescope.prompt_bg },
     TelescopePromptNormal = { fg = c.telescope.prompt_fg, bg = c.telescope.prompt_bg },
     TelescopePromptPrefix = { fg = c.telescope.prompt_accent, bg = c.telescope.prompt_bg },
+    TelescopePromptCounter = { fg = c.comment },
     TelescopePromptTitle = { fg = c.telescope.prompt_title_fg, bg = c.telescope.prompt_accent },
     TelescopeResultsBorder = { fg = c.telescope.results_bg, bg = c.telescope.results_bg },
     TelescopeResultsNormal = { bg = c.telescope.results_bg },
