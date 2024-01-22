@@ -273,6 +273,7 @@ function M.setup()
 
     -- typescript
     ["@variable.member.typescript"] = { link = "@property" },
+    ["@variable.parameter.typescript"] = { link = "@parameter" },
 
     -- LspTrouble
     TroubleText = { fg = c.fg_dark },
