@@ -271,9 +271,8 @@ function M.setup()
     -- NOTE: maybe add these with distinct highlights?
     -- ["@lsp.typemod.variable.globalScope"] (global variables)
 
-    -- typescript
-    ["@variable.member.typescript"] = { link = "@property" },
-    ["@variable.parameter.typescript"] = { link = "@parameter" },
+    ["@variable.member"] = { link = "@property" },
+    ["@variable.parameter"] = { link = "@parameter" },
 
     -- LspTrouble
     TroubleText = { fg = c.fg_dark },
