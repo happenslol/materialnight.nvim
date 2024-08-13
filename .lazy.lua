@@ -1,14 +1,14 @@
 local M = {
-  module = "tokyonight",
-  colorscheme = "tokyonight",
-  opts = { style = "night", plugins = { all = true } },
+  module = "materialnight",
+  colorscheme = "materialnight",
+  opts = { plugins = { all = true } },
   globals = { vim = vim },
   cache = {}, ---@type table<string, boolean>
 }
 
 function M.reset()
-  require("tokyonight.util").cache.clear()
-  local colors = require("tokyonight.colors").setup()
+  require("materialnight.util").cache.clear()
+  local colors = require("materialnight.colors").setup()
   M.globals.colors = colors
   M.globals.c = colors
 end
@@ -74,6 +74,8 @@ return {
                 if not vim.tbl_isempty(hl) then
                   hl.fg = hl.fg or vim.api.nvim_get_hl(0, { name = "Normal", link = false }).fg
                   M.cache[group] = true
+
+                  ---@diagnostic disable-next-line: param-type-mismatch
                   vim.api.nvim_set_hl(0, group .. "Dev", hl)
                 end
               end
