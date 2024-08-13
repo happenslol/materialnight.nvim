@@ -2,7 +2,7 @@ local M = {}
 
 M.url = "https://github.com/echasnovski/mini.icons"
 
----@type tokyonight.HighlightsFn
+---@type materialnight.HighlightsFn
 function M.get(c)
   -- stylua: ignore
   return {

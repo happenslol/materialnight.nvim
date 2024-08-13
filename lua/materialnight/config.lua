@@ -2,9 +2,9 @@ local M = {}
 
 M.version = "4.8.0" -- x-release-please-version
 
----@class tokyonight.Config
+---@class materialnight.Config
 ---@field on_colors fun(colors: ColorScheme)
----@field on_highlights fun(highlights: tokyonight.Highlights, colors: ColorScheme)
+---@field on_highlights fun(highlights: materialnight.Highlights, colors: ColorScheme)
 M.defaults = {
   style = "moon", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
@@ -32,7 +32,7 @@ M.defaults = {
 
   --- You can override specific highlights to use other groups or a hex color
   --- function will be called with a Highlights and ColorScheme table
-  ---@param highlights tokyonight.Highlights
+  ---@param highlights materialnight.Highlights
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 
@@ -48,20 +48,20 @@ M.defaults = {
     auto = true,
     -- add any plugins here that you want to enable
     -- for all possible plugins, see:
-    --   * https://github.com/folke/tokyonight.nvim/tree/main/lua/tokyonight/groups
+    --   * https://github.com/folke/materialnight.nvim/tree/main/lua/materialnight/groups
     -- telescope = true,
   },
 }
 
----@type tokyonight.Config
+---@type materialnight.Config
 M.options = nil
 
----@param options? tokyonight.Config
+---@param options? materialnight.Config
 function M.setup(options)
   M.options = vim.tbl_deep_extend("force", {}, M.defaults, options or {})
 end
 
----@param opts? tokyonight.Config
+---@param opts? materialnight.Config
 function M.extend(opts)
   return opts and vim.tbl_deep_extend("force", {}, M.options, opts) or M.options
 end

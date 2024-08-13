@@ -1,5 +1,5 @@
-local Config = require("tokyonight.config")
-local Util = require("tokyonight.util")
+local Config = require("materialnight.config")
+local Util = require("materialnight.util")
 
 local M = {}
 
@@ -72,19 +72,19 @@ local me = debug.getinfo(1, "S").source:sub(2)
 me = vim.fn.fnamemodify(me, ":h")
 
 function M.get_group(name)
-  ---@type {get: tokyonight.HighlightsFn, url: string}
-  return Util.mod("tokyonight.groups." .. name)
+  ---@type {get: materialnight.HighlightsFn, url: string}
+  return Util.mod("materialnight.groups." .. name)
 end
 
 ---@param colors ColorScheme
----@param opts tokyonight.Config
+---@param opts materialnight.Config
 function M.get(name, colors, opts)
   local mod = M.get_group(name)
   return mod.get(colors, opts)
 end
 
 ---@param colors ColorScheme
----@param opts tokyonight.Config
+---@param opts materialnight.Config
 function M.setup(colors, opts)
   local groups = {
     base = true,

@@ -2,7 +2,7 @@ local M = {}
 
 M.url = "https://github.com/folke/trouble.nvim"
 
----@type tokyonight.HighlightsFn
+---@type materialnight.HighlightsFn
 function M.get(c, opts)
   -- stylua: ignore
   return {

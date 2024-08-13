@@ -2,7 +2,7 @@ local M = {}
 
 M.url = "https://github.com/RRethy/vim-illuminate"
 
----@type tokyonight.HighlightsFn
+---@type materialnight.HighlightsFn
 function M.get(c)
   -- stylua: ignore
   return {

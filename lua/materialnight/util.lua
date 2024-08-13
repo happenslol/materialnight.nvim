@@ -57,7 +57,7 @@ function M.invert(color)
       color[key] = M.invert(value)
     end
   elseif type(color) == "string" then
-    local hsluv = require("tokyonight.hsluv")
+    local hsluv = require("materialnight.hsluv")
     if color ~= "NONE" then
       local hsl = hsluv.hex_to_hsluv(color)
       hsl[3] = 100 - hsl[3]
@@ -70,7 +70,7 @@ function M.invert(color)
   return color
 end
 
----@param groups tokyonight.Highlights
+---@param groups materialnight.Highlights
 ---@return table<string, vim.api.keyset.highlight>
 function M.resolve(groups)
   for _, hl in pairs(groups) do
@@ -119,12 +119,12 @@ end
 M.cache = {}
 
 function M.cache.file(key)
-  return vim.fn.stdpath("cache") .. "/tokyonight-" .. key .. ".json"
+  return vim.fn.stdpath("cache") .. "/materialnight-" .. key .. ".json"
 end
 
 ---@param key string
 function M.cache.read(key)
-  ---@type boolean, tokyonight.Cache
+  ---@type boolean, materialnight.Cache
   local ok, ret = pcall(function()
     return vim.json.decode(M.read(M.cache.file(key)), { luanil = {
       object = true,
@@ -135,7 +135,7 @@ function M.cache.read(key)
 end
 
 ---@param key string
----@param data tokyonight.Cache
+---@param data materialnight.Cache
 function M.cache.write(key, data)
   pcall(M.write, M.cache.file(key), vim.json.encode(data))
 end

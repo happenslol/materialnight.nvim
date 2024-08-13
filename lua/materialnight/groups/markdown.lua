@@ -1,10 +1,10 @@
-local Util = require("tokyonight.util")
+local Util = require("materialnight.util")
 
 local M = {}
 
 M.url = "https://github.com/MeanderingProgrammer/markdown.nvim"
 
----@type tokyonight.HighlightsFn
+---@type materialnight.HighlightsFn
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {

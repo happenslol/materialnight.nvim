@@ -2,7 +2,7 @@ local M = {}
 
 M.url = "https://github.com/vimwiki/vimwiki"
 
----@type tokyonight.HighlightsFn
+---@type materialnight.HighlightsFn
 function M.get(c, opts)
   -- stylua: ignore
   local ret = {

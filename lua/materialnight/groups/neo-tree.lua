@@ -1,10 +1,10 @@
-local Util = require("tokyonight.util")
+local Util = require("materialnight.util")
 
 local M = {}
 
 M.url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
 
----@type tokyonight.HighlightsFn
+---@type materialnight.HighlightsFn
 function M.get(c, opts)
   local dark = opts.styles.sidebars == "transparent" and c.none
     or Util.blend(c.bg_sidebar, 0.8, opts.style == "day" and c.blue or "#000000")

@@ -1,4 +1,4 @@
-local Util = require("tokyonight.util")
+local Util = require("materialnight.util")
 
 ---@class Palette
 local palette = {
@@ -40,16 +40,16 @@ local palette = {
 
 local M = {}
 
----@type table<string, Palette|fun(opts:tokyonight.Config):Palette>
+---@type table<string, Palette|fun(opts:materialnight.Config):Palette>
 M.styles = setmetatable({}, {
   __index = function(_, style)
-    return vim.deepcopy(Util.mod("tokyonight.colors." .. style))
+    return vim.deepcopy(Util.mod("materialnight.colors." .. style))
   end,
 })
 
----@param opts? tokyonight.Config
+---@param opts? materialnight.Config
 function M.setup(opts)
-  opts = require("tokyonight.config").extend(opts)
+  opts = require("materialnight.config").extend(opts)
 
   Util.day_brightness = opts.day_brightness
 
