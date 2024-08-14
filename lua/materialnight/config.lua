@@ -6,8 +6,8 @@ M.version = "4.8.0" -- x-release-please-version
 ---@field on_colors fun(colors: ColorScheme)
 ---@field on_highlights fun(highlights: materialnight.Highlights, colors: ColorScheme)
 M.defaults = {
-  style = "moon", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
-  light_style = "day", -- The theme is used when the background is set to light
+  style = "dark",
+  light_style = "light",
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
@@ -28,6 +28,7 @@ M.defaults = {
   --- You can override specific color groups to use other groups or a hex color
   --- function will be called with a ColorScheme table
   ---@param colors ColorScheme
+  ---@diagnostic disable-next-line: unused-local
   on_colors = function(colors) end,
 
   --- You can override specific highlights to use other groups or a hex color
