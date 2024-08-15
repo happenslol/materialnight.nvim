@@ -3,8 +3,8 @@ local M = {}
 M.version = "4.8.0" -- x-release-please-version
 
 ---@class materialnight.Config
----@field on_colors fun(colors: ColorScheme)
----@field on_highlights fun(highlights: materialnight.Highlights, colors: ColorScheme)
+---@field on_colors fun(colors: ColorScheme)|nil
+---@field on_highlights fun(highlights: materialnight.Highlights, colors: ColorScheme)|nil
 M.defaults = {
   style = "dark",
   light_style = "light",
