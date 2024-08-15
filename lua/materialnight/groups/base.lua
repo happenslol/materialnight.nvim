@@ -34,7 +34,7 @@ function M.get(c, opts)
     CursorLineNr                = { fg = c.orange, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     LineNrAbove                 = { fg = c.fg_gutter },
     LineNrBelow                 = { fg = c.fg_gutter },
-    MatchParen                  = { fg = c.orange, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen                  = { bg = c.comment, fg = c.cyan, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg                     = { fg = c.fg_dark, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea                     = { fg = c.fg_dark }, -- Area for messages and cmdline
     MoreMsg                     = { fg = c.blue }, -- |more-prompt|
@@ -85,11 +85,12 @@ function M.get(c, opts)
     Keyword                     = { fg = c.cyan, style = opts.styles.keywords }, --  any other keyword
     Operator                    = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
     PreProc                     = { fg = c.cyan }, -- (preferred) generic Preprocessor
+    Include                     = { fg = c.blue2 }, --  preprocessor #include
     Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
     Statement                   = { fg = c.magenta }, -- (preferred) any statement
     String                      = { fg = c.green }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    Type                        = { fg = c.blue1 }, -- (preferred) int, long, char, etc.
+    Type                        = { fg = c.yellow }, -- (preferred) int, long, char, etc.
     Underlined                  = { underline = true }, -- (preferred) text that stands out, HTML links
     debugBreakpoint             = { bg = Util.blend_bg(c.info, 0.1), fg = c.info }, -- used for breakpoint colors in terminal-debug
     debugPC                     = { bg = c.bg_sidebar }, -- used for highlighting the current line in terminal-debug
