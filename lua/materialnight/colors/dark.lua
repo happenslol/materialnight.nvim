@@ -23,17 +23,14 @@ local ret = {
   magenta = "#c792ea",
   magenta2 = "#ddbef2",
   orange = "#f78c6c",
+  orange1 = "#ff8700",
   purple = "#c792ea",
   red = "#f07178",
   red1 = "#ff8b92",
   teal = "#98d3cb",
   terminal_black = "#282828",
   yellow = "#ffcb6b",
-  git = {
-    add = "#449dab",
-    change = "#6183bb",
-    delete = "#914c54",
-  },
+  git = { add = "", change = "", delete = "" },
 }
 
 return ret
