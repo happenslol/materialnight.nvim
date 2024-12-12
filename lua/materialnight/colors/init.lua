@@ -29,6 +29,12 @@ function M.setup(opts)
 
   colors.none = "NONE"
 
+  colors.git = {
+    add = colors.green,
+    change = colors.yellow,
+    delete = colors.red,
+  }
+
   colors.diff = {
     add = Util.blend_bg(colors.green2, 0.15),
     delete = Util.blend_bg(colors.red1, 0.15),
@@ -39,11 +45,11 @@ function M.setup(opts)
   colors.git.ignore = colors.dark3
   colors.black = Util.blend_bg(colors.bg, 0.8, "#000000")
   colors.border_highlight = Util.blend_bg(colors.blue1, 0.8)
-  colors.border = colors.black
+  colors.border = colors.bg_highlight
 
   -- Popups and statusline always get a dark background
   colors.bg_popup = colors.bg_dark
-  colors.bg_statusline = colors.bg_dark
+  colors.bg_statusline = colors.terminal_black
 
   -- Sidebar and Floats are configurable
   colors.bg_sidebar = opts.styles.sidebars == "transparent" and colors.none
@@ -65,7 +71,14 @@ function M.setup(opts)
   colors.info = colors.blue2
   colors.hint = colors.teal
 
-  colors.rainbow = { colors.blue, colors.yellow, colors.green, colors.teal, colors.magenta, colors.purple }
+  colors.rainbow = {
+    colors.blue,
+    colors.yellow,
+    colors.green,
+    colors.teal,
+    colors.magenta,
+    colors.purple,
+  }
 
   opts.on_colors(colors)
 

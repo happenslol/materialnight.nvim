@@ -12,9 +12,9 @@ function M.get(c, opts)
   return {
     NeoTreeDimText             = { fg = c.fg_gutter },
     NeoTreeFileName            = { fg = c.fg_sidebar },
-    NeoTreeGitModified         = { fg = c.orange },
-    NeoTreeGitStaged           = { fg = c.green1 },
-    NeoTreeGitUntracked        = { fg = c.magenta },
+    NeoTreeGitModified         = { fg = c.git.change },
+    NeoTreeGitStaged           = { fg = c.git.add },
+    NeoTreeGitUntracked        = { fg = c.orange1 },
     NeoTreeNormal              = { fg = c.fg_sidebar, bg = c.bg_sidebar },
     NeoTreeNormalNC            = { fg = c.fg_sidebar, bg = c.bg_sidebar },
     NeoTreeTabActive           = { fg = c.blue, bg = c.bg_dark, bold = true },

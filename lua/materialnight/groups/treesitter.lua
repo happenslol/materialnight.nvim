@@ -20,9 +20,9 @@ function M.get(c, opts)
     ["@comment.todo"]               = { fg = c.todo },
     ["@comment.warning"]            = { fg = c.warning },
     ["@constant"]                   = "Constant",
-    ["@constant.builtin"]           = "Special",
+    ["@constant.builtin"]           = "Constant",
     ["@constant.macro"]             = "Define",
-    ["@constructor"]                = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    ["@constructor"]                = { fg = c.orange }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     ["@constructor.tsx"]            = { fg = c.blue1 },
     ["@diff.delta"]                 = "DiffChange",
     ["@diff.minus"]                 = "DiffDelete",
@@ -41,7 +41,7 @@ function M.get(c, opts)
     ["@keyword.directive.define"]   = "Define",
     ["@keyword.exception"]          = "Exception",
     ["@keyword.function"]           = { fg = c.magenta, style = opts.styles.functions }, -- For keywords used to define a function.
-    ["@keyword.import"]             = "Include",
+    ["@keyword.import"]             = "@keyword",
     ["@keyword.operator"]           = "@operator",
     ["@keyword.repeat"]             = "Repeat",
     ["@keyword.return"]             = "@keyword",
@@ -74,8 +74,8 @@ function M.get(c, opts)
     ["@number"]                     = "Number",
     ["@number.float"]               = "Float",
     ["@operator"]                   = { fg = c.blue5 }, -- For any operator: `+`, but also `->` and `*` in C.
-    ["@property"]                   = { fg = c.green1 },
-    ["@punctuation.bracket"]        = { fg = c.fg_dark }, -- For brackets and parens.
+    ["@property"]                   = { fg = c.yellow },
+    ["@punctuation.bracket"]        = { fg = c.dark5 }, -- For brackets and parens.
     ["@punctuation.delimiter"]      = { fg = c.blue5 }, -- For delimiters ie: `.`
     ["@punctuation.special"]        = { fg = c.blue5 }, -- For special symbols (e.g. `{}` in string interpolation)
     ["@string"]                     = "String",
@@ -86,16 +86,16 @@ function M.get(c, opts)
     ["@tag.attribute"]              = "@property",
     ["@tag.delimiter"]              = "Delimiter",
     ["@tag.delimiter.tsx"]          = { fg = Util.blend_bg(c.blue, 0.7) },
-    ["@tag.tsx"]                    = { fg = c.red },
+    ["@tag.tsx"]                    = "Statement",
     ["@tag.javascript"]             = { fg = c.red },
     ["@type"]                       = "Type",
-    ["@type.builtin"]               = { fg = Util.blend_bg(c.blue1, 0.8) },
+    ["@type.builtin"]               = "Type",
     ["@type.definition"]            = "Typedef",
     ["@type.qualifier"]             = "@keyword",
     ["@variable"]                   = { fg = c.fg, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"]           = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-    ["@variable.member"]            = { fg = c.green1 }, -- For fields.
-    ["@variable.parameter"]         = { fg = c.yellow }, -- For parameters of a function.
+    ["@variable.member"]            = "@property", -- For fields.
+    ["@variable.parameter"]         = { fg = c.red }, -- For parameters of a function.
     ["@variable.parameter.builtin"] = { fg = Util.blend_fg(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
   }
 

@@ -12,7 +12,7 @@ local kinds = {
   EnumMember = "@lsp.type.enumMember",
   Event = "Special",
   Field = "@variable.member",
-  File = "Normal",
+  File = "@string",
   Folder = "Directory",
   Function = "@function",
   Interface = "@lsp.type.interface",
@@ -32,9 +32,9 @@ local kinds = {
   String = "@string",
   Struct = "@lsp.type.struct",
   Unit = "@lsp.type.struct",
-  Text = "@markup",
+  Text = "@comment",
   TypeParameter = "@lsp.type.typeParameter",
-  Variable = "@variable",
+  Variable = "@tag",
   Value = "@string",
 }
 
