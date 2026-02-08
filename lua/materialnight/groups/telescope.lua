@@ -28,6 +28,10 @@ function M.get(c, opts)
     TelescopeResultsBorder = { fg = t.results_bg, bg = t.results_bg },
     TelescopeResultsNormal = { bg = t.results_bg },
     TelescopeResultsTitle = { fg = t.results_bg, bg = t.results_bg },
+    TelescopeResultsDiffAdd = { fg = c.green},
+    TelescopeResultsDiffChange = { fg = c.yellow },
+    TelescopeResultsDiffDelete = { fg = c.red },
+    TelescopeResultsDiffUntracked = { fg = c.comment },
   }
 end
 
